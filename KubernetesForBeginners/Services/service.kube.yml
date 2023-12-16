@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80 # Does not need to be specified, if none, will assume number specified in port
+      nodePort: 30004 # Does not need to be specified, if none, will take random port on cluster in acceptable range
+  selector:
+    app: myapp
